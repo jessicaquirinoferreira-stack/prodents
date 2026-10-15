@@ -1,0 +1,7 @@
+{
+  "name": "Pro Dentes Odontologia",
+  "description": "Clínica odontológica de excelência em São Bernardo do Campo. Especialistas em implantes, reabilitação oral, ortodontia e estética dental.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
