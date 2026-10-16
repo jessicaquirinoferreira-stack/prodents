@@ -1,6 +1,6 @@
 {
   "name": "Pro Dentes Odontologia",
-  "description": "Clínica odontológica de excelência em São Bernardo do Campo. Especialistas em implantes, reabilitação oral, ortodontia e estética dental.",
+  "description": "Clínica odontológica familiar no Rudge Ramos, São Bernardo do Campo (próximo à Sabesp e Bem Barato). Dr. Carlos (+27 anos no bairro), acolhimento da terceira idade, endodontia, implantes e ortopedia infantil.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

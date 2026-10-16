@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserCheck, Award, Calendar, CheckCircle2 } from 'lucide-react';
+import { UserCheck, Calendar, CheckCircle2, HeartHandshake } from 'lucide-react';
 import { SPECIALISTS } from '../data/clinicData';
 import { Specialist } from '../types';
 
@@ -11,7 +11,7 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
   onSelectSpecialistForBooking,
 }) => {
   return (
-    <section id="especialistas" className="relative py-24 bg-[#0D0D0D] overflow-hidden">
+    <section id="equipe" className="relative py-24 bg-[#0D0D0D] overflow-hidden">
       {/* Decorative lighting */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#5C0A1F]/15 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -22,14 +22,14 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#1A1A1A] border border-[#D4AF37]/40 mb-3">
             <UserCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span className="text-xs font-semibold tracking-widest uppercase text-amber-200">
-              Corpo Clínico Multidisciplinar
+              Profissionais Dedicados & Acolhedores
             </span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">
-            Conheça nossos <span className="gold-gradient-text">especialistas</span>
+            Conheça nossa <span className="gold-gradient-text">Equipe</span>
           </h2>
           <p className="text-base sm:text-lg text-zinc-400 font-light max-w-2xl mx-auto">
-            Dentistas altamente qualificados, pós-graduados e comprometidos com a precisão científica e o acolhimento humano.
+            Dentistas apaixonados pelo bem-estar de cada pessoa. Atendimento sem pressa, atenção máxima à terceira idade e cuidado especializado para crianças com ortopedia dos maxilares.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-6"></div>
         </div>
@@ -42,18 +42,18 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
           >
             <div className="rounded-[22px] bg-gradient-to-br from-[#161616] via-[#121212] to-[#0A0A0A] p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Photo */}
-              <div className="lg:col-span-5 relative group overflow-hidden rounded-2xl border-2 border-[#D4AF37]/50 shadow-2xl">
-                <div className="aspect-[4/3] sm:aspect-[4/3] lg:aspect-[4/4] overflow-hidden bg-black">
+              <div className="lg:col-span-5 relative group overflow-hidden rounded-2xl border-2 border-[#D4AF37]/50 shadow-2xl bg-[#080808] flex flex-col justify-center">
+                <div className="relative w-full aspect-[16/10] sm:aspect-[16/10] lg:aspect-[16/11] overflow-hidden bg-black flex items-center justify-center p-1">
                   <img
                     src={director.image}
                     alt={director.name}
-                    className="w-full h-full object-cover object-[50%_18%] group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-500"
                     loading="lazy"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-4">
-                  <span className="text-xs text-amber-200 font-semibold uppercase tracking-wider bg-black/60 px-3 py-1 rounded backdrop-blur-sm border border-[#D4AF37]/40">
-                    Homem Central na Equipe Pro Dentes
+                <div className="p-3 bg-[#111111] border-t border-[#D4AF37]/30 text-center">
+                  <span className="text-[11px] sm:text-xs text-amber-200 font-semibold uppercase tracking-wider">
+                    Equipe Pro Dentes • Dr. Carlos Eduardo Carvalho Vilela (Homem Central)
                   </span>
                 </div>
               </div>
@@ -66,6 +66,9 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
                   </span>
                   <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#222] text-zinc-300 border border-zinc-700">
                     {director.cro}
+                  </span>
+                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#2A2A2A] text-amber-300 border border-[#D4AF37]/30">
+                    +27 Anos de Experiência no Bairro
                   </span>
                 </div>
 
@@ -139,9 +142,19 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({
                     {specialist.name}
                   </h3>
 
-                  <p className="text-xs text-zinc-400 leading-relaxed line-clamp-4">
+                  <p className="text-xs text-zinc-300 leading-relaxed line-clamp-4">
                     {specialist.bio}
                   </p>
+
+                  {/* Bullet Highlights */}
+                  <div className="pt-2 space-y-1.5 border-t border-zinc-800">
+                    {specialist.qualifications.slice(0, 2).map((q, idx) => (
+                      <div key={idx} className="flex items-center space-x-1.5 text-[11px] text-zinc-400">
+                        <HeartHandshake className="w-3.5 h-3.5 text-[#D4AF37] flex-shrink-0" />
+                        <span className="truncate">{q}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 

@@ -82,24 +82,24 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
 
             <div className="space-y-4 pt-2">
               <div className="flex items-start space-x-3 text-sm text-zinc-300">
-                <Clock className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
+                <ShieldCheck className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-white block">Atendimento com Pontualidade:</strong>
-                  Respeito integral ao seu tempo e à sua agenda.
+                  <strong className="text-white block">Segurança Médica Rigorosa:</strong>
+                  Checagem mandatória de pressão arterial e glicemia antes de sentar na cadeira.
                 </div>
               </div>
               <div className="flex items-start space-x-3 text-sm text-zinc-300">
-                <ShieldCheck className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-white block">Planejamento Transparente:</strong>
-                  Diagnóstico completo com clareza sobre opções de tratamento e facilidades.
+                  <strong className="text-white block">Paciência & Acolhimento:</strong>
+                  Consultas sem pressa, especialmente para a terceira idade e crianças.
                 </div>
               </div>
               <div className="flex items-start space-x-3 text-sm text-zinc-300">
                 <Phone className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-white block">Atendimento por WhatsApp ou Telefone:</strong>
-                  Contato direto no {CLINIC_INFO.phones.display}.
+                  <strong className="text-white block">Atendimento por Telefone e WhatsApp:</strong>
+                  Telefone: {CLINIC_INFO.phones.display} | WhatsApp: {CLINIC_INFO.phones.whatsappDisplay} (próx. à Sabesp e Supermercado Bem Barato).
                 </div>
               </div>
             </div>

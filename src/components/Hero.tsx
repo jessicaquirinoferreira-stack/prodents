@@ -95,10 +95,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
           {/* Secondary CTA */}
           <a
-            href="#tratamentos"
+            href="#servicos"
             className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 py-4 rounded-full font-semibold text-sm uppercase tracking-wider text-amber-100 bg-[#141414]/80 hover:bg-[#1A1A1A] border border-[#D4AF37]/50 hover:border-[#D4AF37] backdrop-blur-md shadow-lg transform hover:-translate-y-1 transition-all duration-300"
           >
-            <span>Conheça nossos tratamentos</span>
+            <span>Conheça nossos serviços</span>
             <ArrowRight className="w-4 h-4 text-[#D4AF37]" />
           </a>
         </div>
@@ -123,8 +123,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
               <ShieldCheck className="w-5 h-5 text-[#D4AF37]" />
             </div>
             <div>
-              <div className="text-sm font-bold text-white">Desde 2009</div>
-              <div className="text-[11px] text-zinc-400">+15 Anos em SBC</div>
+              <div className="text-sm font-bold text-white">+27 Anos</div>
+              <div className="text-[11px] text-zinc-400">Dr. Carlos no Bairro</div>
             </div>
           </div>
 
@@ -133,8 +133,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
               <Sparkles className="w-5 h-5 text-[#D4AF37]" />
             </div>
             <div>
-              <div className="text-sm font-bold text-white">Casos Complexos</div>
-              <div className="text-[11px] text-zinc-400">Implantes & Oclusão</div>
+              <div className="text-sm font-bold text-white">80% 3ª Idade</div>
+              <div className="text-[11px] text-zinc-400">Paciência & Carinho</div>
             </div>
           </div>
 
@@ -144,7 +144,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             </div>
             <div>
               <div className="text-sm font-bold text-white">Rudge Ramos</div>
-              <div className="text-[11px] text-zinc-400">Fácil Estacionamento</div>
+              <div className="text-[11px] text-zinc-400">Próx. Sabesp e Bem Barato</div>
             </div>
           </div>
         </div>

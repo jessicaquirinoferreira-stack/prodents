@@ -5,9 +5,9 @@ export interface Treatment {
   fullDescription: string;
   iconName: string;
   benefits: string[];
-  duration: string;
   recommendedFor: string;
   tag: string;
+  careHighlights?: string;
 }
 
 export interface Specialist {
@@ -41,4 +41,16 @@ export interface BookingFormData {
   preferredDate?: string;
   preferredPeriod: 'manha' | 'tarde' | 'noite';
   notes?: string;
+}
+
+export type GalleryCategory = 'todos' | 'consultorios' | 'recepcao' | 'cirurgia' | 'conforto';
+
+export interface GalleryItem {
+  id: string;
+  url: string;
+  title: string;
+  category: GalleryCategory;
+  categoryLabel: string;
+  description: string;
+  tag: string;
 }

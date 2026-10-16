@@ -4,7 +4,7 @@ import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
 import { TreatmentsSection } from './components/TreatmentsSection';
 import { SpecialistsSection } from './components/SpecialistsSection';
-import { TechnologySection } from './components/TechnologySection';
+import { SmartGallery } from './components/SmartGallery';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { BookingSection } from './components/BookingSection';
 import { ContactSection } from './components/ContactSection';
@@ -53,13 +53,13 @@ export default function App() {
           onSelectTreatmentForBooking={handleSelectTreatmentForBooking}
         />
 
-        {/* Conheça Nossos Especialistas */}
+        {/* Conheça Nossa Equipe */}
         <SpecialistsSection
           onSelectSpecialistForBooking={handleSelectSpecialistForBooking}
         />
 
-        {/* Tecnologia & Estrutura */}
-        <TechnologySection />
+        {/* Galeria Inteligente do Consultório */}
+        <SmartGallery onOpenBooking={handleOpenGeneralBooking} />
 
         {/* Depoimentos de Pacientes */}
         <TestimonialsSection />

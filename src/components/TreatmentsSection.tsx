@@ -9,7 +9,7 @@ import {
   Cpu,
   Smile,
   ArrowRight,
-  Stethoscope,
+  Heart,
 } from 'lucide-react';
 import { TREATMENTS } from '../data/clinicData';
 import { Treatment } from '../types';
@@ -48,7 +48,7 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({
   };
 
   return (
-    <section id="tratamentos" className="relative py-24 bg-[#080808] overflow-hidden">
+    <section id="servicos" className="relative py-24 bg-[#080808] overflow-hidden">
       {/* Background gradients */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[radial-gradient(circle,_rgba(92,10,31,0.18)_0%,_transparent_70%)] pointer-events-none"></div>
 
@@ -56,22 +56,22 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#1A1A1A] border border-[#D4AF37]/40 mb-3">
-            <Stethoscope className="w-3.5 h-3.5 text-[#D4AF37]" />
+            <Heart className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span className="text-xs font-semibold tracking-widest uppercase text-amber-200">
-              Excelência Multidisciplinar
+              Cuidado Humanizado & Experiência
             </span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">
-            Nossos <span className="gold-gradient-text">Tratamentos & Especialidades</span>
+            Nossos <span className="gold-gradient-text">Serviços</span>
           </h2>
           <p className="text-base sm:text-lg text-zinc-400 font-light max-w-2xl mx-auto">
-            Soluções completas desde a prevenção e alinhamento estético até reabilitações orais e implantes em casos de alta complexidade.
+            Atendimento carinhoso e sem pressa. Checamos pressão e glicemia em todas as consultas, usamos anestesia suave com picada quase imperceptível e aplicamos laserterapia cicatrizante.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-6"></div>
         </div>
 
-        {/* Cards Grid with 3D lift and gold glow effects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {TREATMENTS.map((treatment) => (
             <div
               key={treatment.id}
@@ -111,7 +111,7 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({
                 <button
                   type="button"
                   onClick={() => onSelectTreatmentForBooking(treatment.title)}
-                  className="text-[11px] text-zinc-400 hover:text-amber-200 transition-colors"
+                  className="text-[11px] text-zinc-400 hover:text-amber-200 transition-colors cursor-pointer"
                 >
                   Agendar
                 </button>
@@ -120,14 +120,14 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({
           ))}
         </div>
 
-        {/* Quick Treatment Help Box */}
-        <div className="mt-16 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#171717] via-[#24060E] to-[#171717] border border-[#D4AF37]/35 flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Quick Service Help Box */}
+        <div className="mt-16 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#171717] via-[#24060E] to-[#171717] border border-[#D4AF37]/35 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="text-center md:text-left">
             <h4 className="text-xl font-serif font-bold text-white mb-1">
-              Dúvidas sobre qual tratamento é o ideal para você?
+              Dúvidas sobre o tratamento mais indicado para você?
             </h4>
             <p className="text-xs sm:text-sm text-zinc-300">
-              Nossa equipe de especialistas avalia seu caso clinicamente com exames digitais e diagnóstico individualizado.
+              Nossa equipe ouve você com paciência e carinho para indicar a melhor solução com total clareza e honestidade.
             </p>
           </div>
           <button

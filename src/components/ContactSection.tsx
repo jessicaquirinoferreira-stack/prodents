@@ -50,14 +50,16 @@ export const ContactSection: React.FC = () => {
                   <MapPin className="w-6 h-6 text-[#D4AF37]" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-base font-serif font-bold text-white">Endereço Oficial</h3>
-                  <p className="text-sm text-zinc-300 font-medium">
+                  <h3 className="text-base font-serif font-bold text-white">Endereço & Ponto de Referência</h3>
+                  <p className="text-sm text-zinc-200 font-medium">
                     {CLINIC_INFO.address.street}
                   </p>
-                  <p className="text-xs text-zinc-400">
-                    Bairro {CLINIC_INFO.address.neighborhood} – {CLINIC_INFO.address.city} – {CLINIC_INFO.address.state}
+                  <p className="text-xs text-amber-200 font-medium">
+                    📍 {CLINIC_INFO.address.reference}
                   </p>
-                  <p className="text-xs text-amber-300/80">CEP {CLINIC_INFO.address.zip}</p>
+                  <p className="text-xs text-zinc-400">
+                    Bairro {CLINIC_INFO.address.neighborhood} – {CLINIC_INFO.address.city} – {CLINIC_INFO.address.state} • CEP {CLINIC_INFO.address.zip}
+                  </p>
                 </div>
               </div>
 
@@ -148,7 +150,7 @@ export const ContactSection: React.FC = () => {
             <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-4 bg-[#0D0D0D]/95 backdrop-blur-md p-3.5 rounded-xl border border-[#D4AF37]/50 shadow-xl flex items-center justify-between sm:space-x-4">
               <div className="text-left">
                 <div className="text-xs font-bold text-white">Av. Caminho do Mar, 2030</div>
-                <div className="text-[11px] text-amber-300">Rudge Ramos, SBC – SP</div>
+                <div className="text-[11px] text-amber-300">Próx. Sabesp e Bem Barato – Rudge Ramos</div>
               </div>
               <button
                 type="button"

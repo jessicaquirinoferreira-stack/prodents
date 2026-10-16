@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Shield, CheckCircle2, HeartHandshake, Sparkles, Building2 } from 'lucide-react';
+import { Award, Shield, CheckCircle2, HeartHandshake, Building2, Globe2, Activity, Pill } from 'lucide-react';
 import { CLINIC_INFO, CLINIC_PILLARS } from '../data/clinicData';
 
 export const AboutSection: React.FC = () => {
@@ -15,13 +15,16 @@ export const AboutSection: React.FC = () => {
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#1A1A1A] border border-[#D4AF37]/40 mb-3">
             <Award className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span className="text-xs font-semibold tracking-widest uppercase text-amber-200">
-              Nossa História & Propósito
+              Nossa História & Propósito Familiar
             </span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">
             Sobre a <span className="gold-gradient-text">Pró Dentes Odontologia</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto"></div>
+          <p className="text-sm sm:text-base text-zinc-400 font-light max-w-2xl mx-auto">
+            Uma clínica familiar, acolhedora e dedicada ao cuidado humano e individualizado de cada paciente.
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-4"></div>
         </div>
 
         {/* Story and Highlight Grid */}
@@ -30,39 +33,39 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-6">
             <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#141414] via-[#121212] to-[#1A1A1A] border border-[#D4AF37]/30 shadow-2xl relative">
               <div className="absolute -top-3 left-8 px-4 py-1 rounded bg-[#5C0A1F] border border-[#D4AF37]/40 text-[11px] font-bold uppercase tracking-wider text-amber-200">
-                Desde 2009 • Excelência Clínica
+                +27 Anos de História no Bairro • Cuidado Humano
               </div>
 
               <p className="text-lg sm:text-xl text-amber-50 font-serif leading-relaxed italic border-l-4 border-[#D4AF37] pl-4 mb-6">
-                “A Pró Dentes Odontologia nasceu em 2009, fruto do sonho do Dr. Carlos Eduardo C. Vilela, após anos de experiência clínica e acadêmica.”
+                “O Dr. Carlos Eduardo Carvalho Vilela possui mais de 27 anos de experiência cuidando das famílias no mesmo bairro (Rudge Ramos). A clínica atual já soma 17 anos de tradição, somados a outros 10 anos de atuação anterior na mesma região.”
               </p>
 
               <div className="space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Localizada estrategicamente na <strong className="text-white font-semibold">Avenida Caminho do Mar, 2030 – Rudge Ramos, São Bernardo do Campo</strong>, a clínica foi criada para solucionar casos complexos de oclusão, reabilitações orais, enxertos ósseos e implantes dentários, decorrentes do estresse e das rotinas da vida contemporânea.
+                  Localizada estrategicamente na <strong className="text-white font-semibold">Avenida Caminho do Mar, 2030 (próximo à Sabesp e ao Supermercado Bem Barato)</strong>, nossa clínica é familiar, pequena e acolhedora. Aqui, o paciente não é apenas um número: cada pessoa é recebida com carinho, tempo de escuta e atenção genuína.
                 </p>
-                <p className="text-amber-100/90 font-medium">
-                  Aqui unimos os melhores profissionais, as mais modernas tecnologias e um atendimento humanizado, com a meta única de excelência.
+                <p className="text-amber-100/95 font-medium">
+                  Cerca de <strong className="text-[#D4AF37]">80% dos pacientes do Dr. Carlos são da terceira idade</strong>. Por isso, nosso atendimento é marcado por paciência exemplar, empatia e sem pressa (ele não atende crianças). Pela qualidade e honestidade do nosso trabalho, temos a honra de receber pacientes de São Bernardo, de todo o Grande ABC e até de fora do Brasil, vindos dos Estados Unidos, Portugal, Alemanha e outros países.
                 </p>
               </div>
 
-              {/* Badges list */}
+              {/* Protocolos Humanos de Segurança */}
               <div className="mt-8 pt-6 border-t border-zinc-800 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-zinc-200">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-                  <span>Diagnóstico Tridimensional Avançado</span>
+                <div className="flex items-center space-x-2.5">
+                  <Activity className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
+                  <span>Checagem de glicemia e pressão arterial antes da consulta</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-                  <span>Biossegurança e Esterilização Rígida</span>
+                  <span>Anestesia suave: pacientes quase não sentem a picada</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-                  <span>Ambiente Tranquilo e Acolhedor</span>
+                <div className="flex items-center space-x-2.5">
+                  <Pill className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
+                  <span>Primeira medicação pós-cirurgia já entregue na clínica</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-                  <span>Protocolos sem Dor & Alta Precisão</span>
+                <div className="flex items-center space-x-2.5">
+                  <HeartHandshake className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
+                  <span>Laserterapia para acelerar a cicatrização e alívio</span>
                 </div>
               </div>
             </div>
@@ -79,24 +82,24 @@ export const AboutSection: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="font-serif font-bold text-white text-lg">Pró Dentes</h4>
-                      <p className="text-xs text-amber-300">Rudge Ramos, SBC – SP</p>
+                      <p className="text-xs text-amber-300">Próx. Sabesp e Bem Barato – SBC</p>
                     </div>
                   </div>
                   <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#262626] text-amber-200 border border-[#D4AF37]/30">
-                    +15 Anos
+                    Clínica Familiar
                   </span>
                 </div>
 
-                <div className="rounded-xl overflow-hidden border border-[#D4AF37]/20 relative group">
+                <div className="rounded-xl overflow-hidden border border-[#D4AF37]/20 relative group bg-black">
                   <img
                     src={CLINIC_INFO.images.hero}
                     alt="Equipe Pró Dentes Odontologia"
                     className="w-full h-48 sm:h-56 object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-4">
-                    <p className="text-xs text-zinc-200">
-                      Equipe multidisciplinar sob responsabilidade técnica do <strong className="text-amber-300">Dr. Carlos Eduardo Carvalho Vilela (CRO-SP 62085)</strong>.
+                  <div className="p-3 bg-[#161616] border-t border-[#D4AF37]/20 text-center">
+                    <p className="text-xs text-zinc-300">
+                      Dr. Carlos Eduardo Carvalho Vilela (CRO-SP 62085) e Equipe Pro Dentes
                     </p>
                   </div>
                 </div>
@@ -105,13 +108,13 @@ export const AboutSection: React.FC = () => {
                   <div className="flex items-start space-x-3 text-xs sm:text-sm text-zinc-300">
                     <HeartHandshake className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
                     <span>
-                      <strong className="text-white">Odontologia Humanizada:</strong> Compreendemos as angústias do paciente, oferecendo tempo, escuta e conforto em cada etapa.
+                      <strong className="text-white">Acolhimento da 3ª Idade:</strong> Paciência infinita, escuta afetuosa e respeito ao ritmo de cada paciente.
                     </span>
                   </div>
                   <div className="flex items-start space-x-3 text-xs sm:text-sm text-zinc-300">
-                    <Shield className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
+                    <Globe2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
                     <span>
-                      <strong className="text-white">Excelência Resolutiva:</strong> Casos desafiadores tratados com integração entre implantes, ortodontia e estética dental.
+                      <strong className="text-white">Confiança sem Fronteiras:</strong> Atendemos brasileiros residentes nos EUA, Portugal, Alemanha e outros países.
                     </span>
                   </div>
                 </div>
@@ -120,7 +123,7 @@ export const AboutSection: React.FC = () => {
                   href="#contato"
                   className="w-full block text-center py-3 rounded-xl bg-gradient-to-r from-[#1A1A1A] to-[#262626] hover:from-[#5C0A1F] hover:to-[#350611] text-amber-200 hover:text-white border border-[#D4AF37]/40 text-xs uppercase tracking-wider font-bold transition-all duration-300"
                 >
-                  Venha nos fazer uma visita
+                  Venha tomar um café conosco
                 </a>
               </div>
             </div>

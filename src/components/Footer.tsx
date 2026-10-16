@@ -47,6 +47,8 @@ export const Footer: React.FC = () => {
                 <span>
                   <strong>{CLINIC_INFO.address.street}</strong>
                   <br />
+                  <span className="text-amber-200 font-medium">📍 {CLINIC_INFO.address.reference}</span>
+                  <br />
                   {CLINIC_INFO.address.neighborhood} – {CLINIC_INFO.address.city} – {CLINIC_INFO.address.state}
                   <br />
                   CEP: {CLINIC_INFO.address.zip}
@@ -54,7 +56,7 @@ export const Footer: React.FC = () => {
               </p>
             </div>
             <p className="text-xs text-zinc-400 pt-1">
-              Próximo à Praça dos Meninos e fácil acesso pelas principais vias do Grande ABC.
+              Clínica familiar e acolhedora com fácil estacionamento e acesso pelas vias do ABC.
             </p>
           </div>
 
@@ -71,22 +73,22 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#sobre" className="hover:text-[#D4AF37] transition-colors">
-                  Sobre Nós (História 2009)
+                  Sobre Nós (+27 Anos de História)
                 </a>
               </li>
               <li>
-                <a href="#tratamentos" className="hover:text-[#D4AF37] transition-colors">
-                  Tratamentos & Especialidades
+                <a href="#servicos" className="hover:text-[#D4AF37] transition-colors">
+                  Nossos Serviços
                 </a>
               </li>
               <li>
-                <a href="#especialistas" className="hover:text-[#D4AF37] transition-colors">
-                  Corpo Clínico
+                <a href="#equipe" className="hover:text-[#D4AF37] transition-colors">
+                  Nossa Equipe
                 </a>
               </li>
               <li>
-                <a href="#estrutura" className="hover:text-[#D4AF37] transition-colors">
-                  Tecnologia e Diferenciais
+                <a href="#galeria" className="hover:text-[#D4AF37] transition-colors">
+                  Galeria da Clínica
                 </a>
               </li>
               <li>

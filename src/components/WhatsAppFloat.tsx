@@ -66,34 +66,34 @@ export const WhatsAppFloat: React.FC = () => {
             {/* Quick Suggestions */}
             <div className="space-y-1.5 pt-1">
               <span className="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">
-                Assuntos Rápidos:
+                Como podemos cuidar de você:
               </span>
               <button
                 type="button"
                 onClick={() =>
-                  handleOpenWhatsApp('Olá! Gostaria de agendar uma avaliação para Implantes Dentários.')
+                  handleOpenWhatsApp('Olá! Gostaria de agendar uma consulta com o Dr. Carlos.')
                 }
-                className="w-full text-left p-2 rounded-lg bg-[#181818] hover:bg-[#5C0A1F]/50 border border-zinc-800 text-xs text-zinc-300 hover:text-amber-200 transition-colors"
+                className="w-full text-left p-2 rounded-lg bg-[#181818] hover:bg-[#5C0A1F]/50 border border-zinc-800 text-xs text-zinc-300 hover:text-amber-200 transition-colors cursor-pointer"
               >
-                🦷 Quero avaliar implantes dentários
+                🦷 Consulta com Dr. Carlos (Implantes / Canal / Terceira Idade)
               </button>
               <button
                 type="button"
                 onClick={() =>
-                  handleOpenWhatsApp('Olá! Gostaria de informações sobre Lentes de Contato e Clareamento.')
+                  handleOpenWhatsApp('Olá! Gostaria de saber mais sobre o Clareamento Sense ou Lentes Emax.')
                 }
-                className="w-full text-left p-2 rounded-lg bg-[#181818] hover:bg-[#5C0A1F]/50 border border-zinc-800 text-xs text-zinc-300 hover:text-amber-200 transition-colors"
+                className="w-full text-left p-2 rounded-lg bg-[#181818] hover:bg-[#5C0A1F]/50 border border-zinc-800 text-xs text-zinc-300 hover:text-amber-200 transition-colors cursor-pointer"
               >
-                ✨ Informações sobre estética dental & lentes
+                ✨ Lentes em Emax ou Clareamento Sense (-80% sensibilidade)
               </button>
               <button
                 type="button"
                 onClick={() =>
-                  handleOpenWhatsApp('Olá! Gostaria de agendar uma consulta com o ortodontista.')
+                  handleOpenWhatsApp('Olá! Gostaria de agendar avaliação de Ortopedia dos Maxilares para meu filho(a) com a Dra. Andréa.')
                 }
-                className="w-full text-left p-2 rounded-lg bg-[#181818] hover:bg-[#5C0A1F]/50 border border-zinc-800 text-xs text-zinc-300 hover:text-amber-200 transition-colors"
+                className="w-full text-left p-2 rounded-lg bg-[#181818] hover:bg-[#5C0A1F]/50 border border-zinc-800 text-xs text-zinc-300 hover:text-amber-200 transition-colors cursor-pointer"
               >
-                😁 Aparelho dental ou alinhador invisível
+                🧸 Ortopedia dos Maxilares para crianças (Dra. Andréa)
               </button>
             </div>
 

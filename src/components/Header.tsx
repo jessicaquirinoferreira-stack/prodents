@@ -27,12 +27,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
   const navLinksLeft = [
     { name: 'Início', href: '#inicio' },
     { name: 'Sobre Nós', href: '#sobre' },
-    { name: 'Tratamentos', href: '#tratamentos' },
+    { name: 'Serviços', href: '#servicos' },
   ];
 
   const navLinksRight = [
-    { name: 'Especialistas', href: '#especialistas' },
-    { name: 'Estrutura', href: '#estrutura' },
+    { name: 'Equipe', href: '#equipe' },
+    { name: 'Galeria', href: '#galeria' },
     { name: 'Contato', href: '#contato' },
   ];
 
@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
           <div className="flex items-center space-x-6">
             <span className="flex items-center space-x-1.5 text-amber-100/90 hover:text-[#D4AF37] transition-colors">
               <MapPin className="w-3.5 h-3.5 text-[#C9A227]" />
-              <span>Av. Caminho do Mar, 2030 – Rudge Ramos, São Bernardo do Campo</span>
+              <span>Av. Caminho do Mar, 2030 (Próx. Sabesp e Bem Barato) – Rudge Ramos, SBC</span>
             </span>
             <span className="text-[#D4AF37]/40">|</span>
             <span className="text-zinc-400">Segunda a Sexta: 08h às 19h | Sábados: 08h às 13h</span>
@@ -184,8 +184,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
               </button>
 
               <div className="text-center text-xs text-zinc-400 pt-2 space-y-1">
-                <p>📍 {CLINIC_INFO.address.street} – {CLINIC_INFO.address.neighborhood}</p>
-                <p>📞 {CLINIC_INFO.phones.display}</p>
+                <p>📍 {CLINIC_INFO.address.street} ({CLINIC_INFO.address.reference})</p>
+                <p>📞 {CLINIC_INFO.phones.display} | WhatsApp: {CLINIC_INFO.phones.whatsappDisplay}</p>
               </div>
             </div>
           </div>

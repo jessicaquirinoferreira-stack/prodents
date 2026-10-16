@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, CheckCircle, Clock, Users, CalendarCheck, Sparkles, Shield } from 'lucide-react';
+import { X, CheckCircle, Users, CalendarCheck, Sparkles, Shield, HeartHandshake } from 'lucide-react';
 import { Treatment } from '../types';
 import { trackConversion } from '../utils/analytics';
 
@@ -37,7 +37,7 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
           type="button"
           onClick={onClose}
           className="absolute top-4 right-4 p-2 text-zinc-400 hover:text-white bg-[#222222] hover:bg-[#5C0A1F] rounded-full transition-colors cursor-pointer"
-          aria-label="Fechar detalhes do tratamento"
+          aria-label="Fechar detalhes do serviço"
         >
           <X className="w-5 h-5" />
         </button>
@@ -61,16 +61,16 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
           </p>
 
           <div className="p-4 rounded-xl bg-[#1A1A1A]/90 border border-zinc-800">
-            <p className="text-zinc-300 leading-relaxed">
+            <div className="text-zinc-300 leading-relaxed whitespace-pre-line">
               {treatment.fullDescription}
-            </p>
+            </div>
           </div>
 
           {/* Benefits */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-[#D4AF37] mb-3 flex items-center space-x-2">
               <Shield className="w-4 h-4" />
-              <span>Diferenciais e Benefícios</span>
+              <span>Diferenciais e Cuidados</span>
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {treatment.benefits.map((benefit, i) => (
@@ -82,21 +82,23 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
             </div>
           </div>
 
-          {/* Highlights Info */}
+          {/* Clinical Highlights (sem tempo estimado) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
             <div className="p-3 rounded-lg bg-[#141414] border border-[#D4AF37]/20 flex items-start space-x-3">
-              <Clock className="w-4 h-4 text-[#D4AF37] flex-shrink-0 mt-0.5" />
+              <Users className="w-4 h-4 text-[#D4AF37] flex-shrink-0 mt-0.5" />
               <div>
-                <span className="block text-xs text-zinc-400 font-semibold uppercase">Tempo Estimado</span>
-                <span className="text-xs text-zinc-200">{treatment.duration}</span>
+                <span className="block text-xs text-zinc-400 font-semibold uppercase">Indicação do Procedimento</span>
+                <span className="text-xs text-zinc-200">{treatment.recommendedFor}</span>
               </div>
             </div>
 
             <div className="p-3 rounded-lg bg-[#141414] border border-[#D4AF37]/20 flex items-start space-x-3">
-              <Users className="w-4 h-4 text-[#D4AF37] flex-shrink-0 mt-0.5" />
+              <HeartHandshake className="w-4 h-4 text-[#D4AF37] flex-shrink-0 mt-0.5" />
               <div>
-                <span className="block text-xs text-zinc-400 font-semibold uppercase">Indicação Clínica</span>
-                <span className="text-xs text-zinc-200">{treatment.recommendedFor}</span>
+                <span className="block text-xs text-zinc-400 font-semibold uppercase">Protocolo de Cuidado</span>
+                <span className="text-xs text-zinc-200">
+                  {treatment.careHighlights || 'Aferição de sinais vitais, anestesia suave e acompanhamento próximo.'}
+                </span>
               </div>
             </div>
           </div>
@@ -105,13 +107,13 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
         {/* Modal Actions */}
         <div className="mt-8 pt-6 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-zinc-400 text-center sm:text-left">
-            Avaliação clínica individualizada no Rudge Ramos.
+            Atendimento carinhoso e sem pressa no Rudge Ramos.
           </p>
           <div className="flex items-center space-x-3 w-full sm:w-auto">
             <button
               type="button"
               onClick={onClose}
-              className="w-1/2 sm:w-auto px-5 py-2.5 rounded-full text-xs font-semibold text-zinc-400 hover:text-white bg-zinc-800 hover:bg-zinc-700 transition-colors"
+              className="w-1/2 sm:w-auto px-5 py-2.5 rounded-full text-xs font-semibold text-zinc-400 hover:text-white bg-zinc-800 hover:bg-zinc-700 transition-colors cursor-pointer"
             >
               Fechar
             </button>

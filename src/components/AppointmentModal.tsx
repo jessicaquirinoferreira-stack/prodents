@@ -133,7 +133,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
                 Agende sua Avaliação
               </h3>
               <p className="text-xs text-zinc-400 mt-1">
-                Av. Caminho do Mar, 2030 – Rudge Ramos, São Bernardo do Campo.
+                Av. Caminho do Mar, 2030 (Próx. Sabesp e Bem Barato) – Rudge Ramos, SBC.
               </p>
             </div>
 
