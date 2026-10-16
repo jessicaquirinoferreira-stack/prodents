@@ -27,51 +27,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
   const navLinksLeft = [
     { name: 'Início', href: '#inicio' },
     { name: 'Sobre Nós', href: '#sobre' },
-    { name: 'Serviços', href: '#servicos' },
+    { name: 'Tratamentos', href: '#servicos' },
   ];
 
   const navLinksRight = [
-    { name: 'Equipe', href: '#equipe' },
-    { name: 'Galeria', href: '#galeria' },
+    { name: 'Nossa Equipe', href: '#equipe' },
+    { name: 'Depoimentos', href: '#depoimentos' },
     { name: 'Contato', href: '#contato' },
   ];
 
   return (
     <>
-      {/* Top micro bar with contact and address info */}
-      <div className="hidden lg:block bg-[#080808]/95 border-b border-[#D4AF37]/20 text-xs py-1.5 px-6 text-[#F8F1E9]/80 backdrop-blur-md relative z-50">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-6">
-            <span className="flex items-center space-x-1.5 text-amber-100/90 hover:text-[#D4AF37] transition-colors">
-              <MapPin className="w-3.5 h-3.5 text-[#C9A227]" />
-              <span>Av. Caminho do Mar, 2030 (Próx. Sabesp e Bem Barato) – Rudge Ramos, SBC</span>
-            </span>
-            <span className="text-[#D4AF37]/40">|</span>
-            <span className="text-zinc-400">Segunda a Sexta: 08h às 19h | Sábados: 08h às 13h</span>
-          </div>
-          <div className="flex items-center space-x-5">
-            <a
-              href={`tel:${CLINIC_INFO.phones.clean}`}
-              onClick={() => trackConversion('click_ligar_telefone')}
-              className="flex items-center space-x-1.5 text-zinc-300 hover:text-[#D4AF37] transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-[#C9A227]" />
-              <span>{CLINIC_INFO.phones.display}</span>
-            </a>
-            <span className="text-emerald-400 flex items-center space-x-1 font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block mr-1"></span>
-              Atendimento Aberto
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Sticky Navbar */}
+      {/* Main Navbar */}
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#0D0D0D]/95 backdrop-blur-md shadow-2xl shadow-black/80 border-b border-[#D4AF37]/30 py-2.5'
-            : 'bg-gradient-to-b from-[#080808]/90 via-[#0D0D0D]/60 to-transparent py-4'
+            ? 'bg-[#0F0C0A]/95 backdrop-blur-md shadow-2xl border-b border-[#C9A86C]/30 py-3'
+            : 'bg-transparent border-b border-[#C9A86C]/15 py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,10 +54,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-sm uppercase tracking-wider font-medium text-[#F8F1E9]/90 hover:text-[#D4AF37] transition-colors duration-200 relative group py-1"
+                  className="text-xs uppercase tracking-widest font-medium text-[#F5F0EB] hover:text-[#C9A86C] transition-colors duration-200 relative group py-1"
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#D4AF37] to-[#C9A227] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#C9A86C] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
             </nav>
@@ -94,14 +66,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
             <div className="flex-shrink-0 flex items-center justify-center">
               <a
                 href="#inicio"
-                className="group flex flex-col items-center focus:outline-none transition-transform duration-300 hover:scale-105"
+                className="group flex flex-col items-center focus:outline-none transition-transform duration-300 hover:scale-102"
                 aria-label="Pro Dentes Odontologia - Página Inicial"
               >
-                <div className="relative flex items-center justify-center py-1">
+                <div className="relative flex items-center justify-center py-0.5">
                   <img
                     src={CLINIC_INFO.images.logo}
                     alt="Logo Oficial Pro Dentes Odontologia"
-                    className="h-14 sm:h-16 md:h-20 w-auto object-contain drop-shadow-[0_4px_16px_rgba(212,175,55,0.45)] group-hover:drop-shadow-[0_4px_24px_rgba(212,175,55,0.75)] transition-all duration-300"
+                    className="h-14 sm:h-16 md:h-18 w-auto object-contain transition-all duration-300 drop-shadow-md filter brightness-110"
                     loading="eager"
                   />
                 </div>
@@ -115,10 +87,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-sm uppercase tracking-wider font-medium text-[#F8F1E9]/90 hover:text-[#D4AF37] transition-colors duration-200 relative group py-1"
+                    className="text-xs uppercase tracking-widest font-medium text-[#F5F0EB] hover:text-[#C9A86C] transition-colors duration-200 relative group py-1"
                   >
                     {item.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#D4AF37] to-[#C9A227] transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#C9A86C] transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 ))}
               </nav>
@@ -126,10 +98,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
               <button
                 type="button"
                 onClick={handleBookingClick}
-                className="ml-auto inline-flex items-center space-x-2 px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold bg-gradient-to-r from-[#D4AF37] via-[#C9A227] to-[#B8860B] text-[#0D0D0D] hover:from-[#5C0A1F] hover:via-[#8B0000] hover:to-[#4A0E0E] hover:text-[#F8F1E9] border border-[#D4AF37]/70 shadow-lg shadow-[#C9A227]/25 hover:shadow-[#5C0A1F]/50 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer"
+                className="ml-auto inline-flex items-center space-x-2 px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold btn-gold-primary cursor-pointer"
               >
-                <CalendarCheck className="w-4 h-4" />
-                <span>Agende sua Avaliação</span>
+                <CalendarCheck className="w-4 h-4 text-[#C9A86C]" />
+                <span>Agendar</span>
               </button>
             </div>
 
@@ -138,56 +110,58 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
               <button
                 type="button"
                 onClick={handleBookingClick}
-                className="px-3.5 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-[#0D0D0D] shadow-md"
+                className="px-4 py-2 rounded-full text-xs font-bold btn-gold-primary"
               >
                 Agendar
               </button>
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-lg text-zinc-300 hover:text-white bg-[#1A1A1A]/80 border border-[#D4AF37]/30 focus:outline-none"
+                className="p-2 rounded-lg text-[#F5F0EB] hover:text-[#C9A86C] bg-[#0F0C0A] border border-[#C9A86C]/30 focus:outline-none"
                 aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
               >
-                {isMobileMenuOpen ? <X className="w-6 h-6 text-[#D4AF37]" /> : <Menu className="w-6 h-6" />}
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Mobile Dropdown Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-[#0D0D0D]/98 backdrop-blur-xl border-b border-[#D4AF37]/30 px-6 pt-4 pb-8 space-y-4 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200">
-            <div className="flex flex-col space-y-3 pt-2">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-[#1A1210] border-b border-[#C9A86C]/30 shadow-2xl py-6 px-6 animate-fadeIn">
+            <nav className="flex flex-col space-y-4">
               {[...navLinksLeft, ...navLinksRight].map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-base font-medium text-zinc-200 hover:text-[#D4AF37] hover:bg-[#1A1A1A] px-3 py-2.5 rounded-lg transition-colors border-l-2 border-transparent hover:border-[#D4AF37]"
+                  className="text-sm uppercase tracking-widest font-medium text-[#F5F0EB] hover:text-[#C9A86C] transition-colors py-2 border-b border-[#C9A86C]/20 flex items-center justify-between"
                 >
-                  {item.name}
+                  <span>{item.name}</span>
+                  <span className="text-[#C9A86C]">›</span>
                 </a>
               ))}
-            </div>
-
-            <div className="pt-4 border-t border-zinc-800 space-y-3">
-              <button
-                type="button"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  handleBookingClick();
-                }}
-                className="w-full flex items-center justify-center space-x-2 px-5 py-3 rounded-full text-sm font-bold bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-[#0D0D0D] shadow-lg shadow-[#C9A227]/30"
-              >
-                <CalendarCheck className="w-4 h-4" />
-                <span>Agende sua Avaliação</span>
-              </button>
-
-              <div className="text-center text-xs text-zinc-400 pt-2 space-y-1">
-                <p>📍 {CLINIC_INFO.address.street} ({CLINIC_INFO.address.reference})</p>
-                <p>📞 {CLINIC_INFO.phones.display} | WhatsApp: {CLINIC_INFO.phones.whatsappDisplay}</p>
+              <div className="pt-4 space-y-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    handleBookingClick();
+                  }}
+                  className="w-full py-3 rounded-full btn-gold-primary text-xs uppercase tracking-wider font-bold flex items-center justify-center space-x-2"
+                >
+                  <CalendarCheck className="w-4 h-4 text-[#C9A86C]" />
+                  <span>Agendar Consulta</span>
+                </button>
+                <a
+                  href={`tel:${CLINIC_INFO.phones.clean}`}
+                  className="w-full py-3 rounded-full bg-[#0F0C0A] border border-[#C9A86C]/30 text-[#F5F0EB] text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2"
+                >
+                  <Phone className="w-4 h-4 text-[#C9A86C]" />
+                  <span>{CLINIC_INFO.phones.display}</span>
+                </a>
               </div>
-            </div>
+            </nav>
           </div>
         )}
       </header>

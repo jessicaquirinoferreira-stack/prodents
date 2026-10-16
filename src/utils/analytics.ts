@@ -8,21 +8,15 @@ declare global {
   }
 }
 
-export type ConversionEvent =
-  | 'click_whatsapp'
-  | 'click_agendamento_hero'
-  | 'click_agendamento_header'
-  | 'open_tratamento_modal'
-  | 'submit_formulario_agendamento'
-  | 'click_ligar_telefone'
-  | 'click_como_chegar';
+export type ConversionEvent = string;
 
-export function trackConversion(eventName: ConversionEvent, eventParams: Record<string, unknown> = {}) {
+export function trackConversion(eventName: ConversionEvent, eventParams: Record<string, unknown> | string | number | undefined = {}) {
   try {
+    const params = typeof eventParams === 'object' && eventParams !== null ? eventParams : { value: eventParams };
     const payload = {
       event: eventName,
       timestamp: new Date().toISOString(),
-      ...eventParams,
+      ...params,
     };
 
     // Google Tag Manager / Google Ads
@@ -32,9 +26,9 @@ export function trackConversion(eventName: ConversionEvent, eventParams: Record<
 
     // Meta / Facebook Pixel
     if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-      if (eventName === 'submit_formulario_agendamento') {
+      if (eventName.includes('submit') || eventName.includes('lead')) {
         window.fbq('track', 'Lead', payload);
-      } else if (eventName === 'click_whatsapp') {
+      } else if (eventName.includes('whatsapp')) {
         window.fbq('track', 'Contact', payload);
       } else {
         window.fbq('trackCustom', eventName, payload);

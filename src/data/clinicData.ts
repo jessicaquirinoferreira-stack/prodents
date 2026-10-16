@@ -23,8 +23,8 @@ export const CLINIC_INFO = {
   },
   email: 'contato@prodentesodontologia.com.br',
   hours: {
-    weekdays: 'Segunda a Sexta: 08h00 às 19h00',
-    saturday: 'Sábado: 08h00 às 13h00',
+    weekdays: 'Segunda a Sexta: 09h00 às 22h00',
+    saturday: 'Sábado: Fechado',
     sunday: 'Domingo: Fechado',
   },
   maps: {
@@ -101,7 +101,7 @@ export const TREATMENTS: Treatment[] = [
   {
     id: 'lentes-emax',
     title: 'Lentes de Contato Dental em Emax',
-    tag: 'Alto Padrão & Durabilidade',
+    tag: 'Estética & Durabilidade Superior',
     shortDescription:
       'Lâminas cerâmicas puras em Emax de altíssima resistência: não mancham com café, vinho ou refrigerante e duram muitos anos.',
     fullDescription:
@@ -110,7 +110,7 @@ export const TREATMENTS: Treatment[] = [
     benefits: [
       'Material cerâmico Emax de alta resistência e pureza',
       'Não mancha com café, vinho, refrigerantes ou alimentos com corante',
-      'Duração de muitos anos: considerado um trabalho definitivo e de alto padrão',
+      'Duração de muitos anos: considerado um trabalho definitivo e de excelência',
       'Estética impecável que reproduz a translucidez natural do esmalte',
     ],
     recommendedFor: 'Quem busca um investimento definitivo em estética dental, com máxima durabilidade e resistência a manchas.',
@@ -141,7 +141,7 @@ export const TREATMENTS: Treatment[] = [
     shortDescription:
       'Clareamento supervisionado com 3 opções sob medida: Tradicional caseiro, Consultório a laser e o moderno Clareamento Sense.',
     fullDescription:
-      'A Dra. Bruna é especialista em Clareamento Dental e personaliza o protocolo conforme a sensibilidade de cada paciente. Oferecemos 3 modalidades completas:\n\n1. Clareamento Tradicional: caseiro com moldeiras confortáveis e gel supervisionado pelo dentista;\n2. Clareamento de Consultório: realizado na clínica com luz laser ativadora (pode gerar um pouco mais de sensibilidade);\n3. Clareamento Sense (Novo): tecnologia com potente agente dessensibilizante que reduz em 80% a sensibilidade e não mancha com vinho, Coca-Cola ou corantes após a aplicação. Modalidade moderna de alto padrão e investimento um pouco maior.',
+      'A Dra. Bruna é especialista em Clareamento Dental e personaliza o protocolo conforme a sensibilidade de cada paciente. Oferecemos 3 modalidades completas:\n\n1. Clareamento Tradicional: caseiro com moldeiras confortáveis e gel supervisionado pelo dentista;\n2. Clareamento de Consultório: realizado na clínica com luz laser ativadora (pode gerar um pouco mais de sensibilidade);\n3. Clareamento Sense (Novo): tecnologia com potente agente dessensibilizante que reduz em 80% a sensibilidade e não mancha com vinho, Coca-Cola ou corantes após a aplicação. Modalidade moderna de excelência e investimento um pouco maior.',
     iconName: 'SunMedium',
     benefits: [
       'Conduzido pela Dra. Bruna, especialista em clareamento',
@@ -215,7 +215,7 @@ export const SPECIALISTS: Specialist[] = [
     cro: 'CRO-SP 62085',
     role: 'Fundador & Responsável Técnico',
     specialty: 'Especialista em Endodontia, Reabilitação Oral & Laserterapia',
-    image: 'https://i.postimg.cc/85sp9DRQ/5188.jpg',
+    image: 'https://www.drcarlosvilela.com.br/images/5090.jpg',
     isDirector: true,
     bio: 'Mais de 27 anos de experiência cuidando das famílias do Rudge Ramos e São Bernardo do Campo (a clínica atual tem 17 anos e ele já atuava 10 anos antes no mesmo bairro). Especialista em Endodontia, possui sólida experiência em laserterapia, reabilitação oral, atua como perito odontológico e foi professor de ética em implantes. Cerca de 80% dos seus pacientes são da terceira idade, sendo reconhecido por sua paciência exemplar, empatia e cuidado sem pressa (não atende crianças). Adota rigoroso protocolo humano: nunca senta o paciente na cadeira sem checar glicemia e pressão arterial, utiliza técnica anestésica delicada onde o paciente quase não sente a picada, aplica laserterapia cicatrizante e entrega a primeira medicação pós-cirúrgica na própria clínica.',
     qualifications: [
@@ -248,7 +248,7 @@ export const SPECIALISTS: Specialist[] = [
     cro: 'CRO-SP 118635',
     role: 'Corpo Clínico Especializado',
     specialty: 'Especialista em Clareamento Dental & Clínico Geral',
-    image: 'https://i.postimg.cc/Vk1bTr57/unnamed-(1).jpg',
+    image: 'https://i.postimg.cc/sgyZ8Q1q/unnamed-(5).jpg',
     bio: 'A profissional do cabelo cacheado da nossa equipe! Especialista em Clareamento Dental, trabalha com o inovador protocolo Clareamento Sense (que reduz em 80% a sensibilidade dental e não mancha com vinho ou café durante o tratamento), além de atuar em clínica geral e prevenção com enorme carinho e atenção aos detalhes.',
     qualifications: [
       'Especialista em Clareamento Dental',
@@ -263,7 +263,7 @@ export const SPECIALISTS: Specialist[] = [
     cro: 'CRO-SP 163603',
     role: 'Corpo Clínico Especializado',
     specialty: 'Clínico Geral & Odontologia Preventiva',
-    image: 'https://i.postimg.cc/sgyZ8Q1q/unnamed-(5).jpg',
+    image: 'https://i.postimg.cc/Vk1bTr57/unnamed-(1).jpg',
     bio: 'A profissional do cabelo liso da equipe Pro Dentes! Dedica-se à clínica geral, restaurações e condicionamento da saúde bucal da família. É reconhecida pelo atendimento gentil, calmo e detalhista, especialmente para quem tem receio de ir ao dentista.',
     qualifications: [
       'Clínica Geral & Cuidado Familiar Integrado',

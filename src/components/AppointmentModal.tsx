@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { X, CalendarCheck, Send, CheckCircle2, MessageSquare, ShieldCheck } from 'lucide-react';
-import { CLINIC_INFO, TREATMENTS, SPECIALISTS } from '../data/clinicData';
-import { BookingFormData } from '../types';
+import { X, Calendar, Send, Shield, HeartHandshake, CheckCircle2 } from 'lucide-react';
+import { CLINIC_INFO, TREATMENTS } from '../data/clinicData';
 import { trackConversion } from '../utils/analytics';
 
 interface AppointmentModalProps {
@@ -17,17 +16,15 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
   initialTreatment,
   initialSpecialist,
 }) => {
-  const [formData, setFormData] = useState<BookingFormData>({
-    fullName: '',
+  const [formData, setFormData] = useState({
+    name: '',
     phone: '',
-    treatment: initialTreatment || 'Implantodontia',
-    specialist: initialSpecialist || '',
-    preferredPeriod: 'manha',
+    treatment: initialTreatment || TREATMENTS[0].title,
+    specialist: initialSpecialist || 'Dr. Carlos Eduardo (Geral / Implantes / Endodontia)',
+    date: '',
+    time: 'Manhã (09h - 12h)',
     notes: '',
   });
-
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (initialTreatment) {
@@ -42,220 +39,186 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
+    trackConversion('submit_agendamento_modal');
 
-    trackConversion('submit_formulario_agendamento', {
-      source: 'modal',
-      treatment: formData.treatment,
-      specialist: formData.specialist || 'Indiferente',
-      period: formData.preferredPeriod,
-    });
+    const message = `Olá! Gostaria de agendar uma consulta na Pró Dentes Odontologia:%0A%0A- Nome: ${formData.name}%0A- Telefone: ${formData.phone}%0A- Tratamento: ${formData.treatment}%0A- Profissional: ${formData.specialist}%0A- Data Preferida: ${formData.date} às ${formData.time}%0A- Observações: ${formData.notes}`;
 
-    setTimeout(() => {
-      setLoading(false);
-      setIsSubmitted(true);
-    }, 600);
-  };
-
-  const handleSendToWhatsApp = () => {
-    trackConversion('click_whatsapp', { source: 'pos_modal' });
-    const text = encodeURIComponent(
-      `Olá! Gostaria de confirmar meu agendamento na *Pro Dentes Odontologia*.\n\n` +
-        `👤 *Nome:* ${formData.fullName}\n` +
-        `🦷 *Tratamento:* ${formData.treatment}\n` +
-        (formData.specialist ? `👨‍⚕️ *Especialista:* ${formData.specialist}\n` : '') +
-        `⏰ *Período:* ${formData.preferredPeriod.toUpperCase()}\n` +
-        `📱 *Telefone:* ${formData.phone}\n` +
-        (formData.notes ? `📝 *Observação:* ${formData.notes}\n` : '')
-    );
-    window.open(`https://wa.me/${CLINIC_INFO.phones.whatsapp}?text=${text}`, '_blank');
+    const whatsappUrl = `https://wa.me/${CLINIC_INFO.phones.whatsapp}?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+    onClose();
   };
 
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
-    >
-      <div
-        className="relative w-full max-w-xl bg-gradient-to-b from-[#181818] via-[#121212] to-[#0D0D0D] border border-[#D4AF37]/50 rounded-2xl shadow-2xl p-6 sm:p-8 text-left max-h-[92vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0F0C0A]/80 backdrop-blur-sm animate-fadeIn">
+      <div className="relative w-full max-w-xl bg-[#1A1210] border border-[#C9A86C]/40 rounded-3xl shadow-2xl p-6 sm:p-8 text-left max-h-[90vh] overflow-y-auto text-[#F5F0EB]">
+        {/* Close Button */}
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-zinc-400 hover:text-white bg-[#222222] hover:bg-[#5C0A1F] rounded-full transition-colors cursor-pointer"
-          aria-label="Fechar agendamento"
+          className="absolute top-4 right-4 p-2 text-[#D4C9B8] hover:text-white bg-[#0F0C0A] hover:bg-[#6B1E2F] rounded-full transition-colors cursor-pointer border border-[#C9A86C]/30"
+          aria-label="Fechar modal"
         >
           <X className="w-5 h-5" />
         </button>
 
-        {isSubmitted ? (
-          <div className="text-center py-6 space-y-5 animate-in zoom-in-95 duration-200">
-            <div className="w-14 h-14 rounded-full bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center mx-auto text-emerald-400">
-              <CheckCircle2 className="w-7 h-7" />
+        {/* Modal Header */}
+        <div className="mb-6 pr-8">
+          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#0F0C0A] text-[#C9A86C] border border-[#C9A86C]/30 mb-2">
+            <Calendar className="w-3.5 h-3.5 text-[#C9A86C]" />
+            <span>Agendamento Rápido via WhatsApp</span>
+          </div>
+          <h3 className="text-2xl font-serif font-bold text-white">
+            Agende sua Consulta
+          </h3>
+          <p className="text-xs sm:text-sm text-[#D4C9B8] mt-1">
+            Preencha os campos abaixo para combinarmos horário com total conforto e rapidez.
+          </p>
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-xs font-bold text-[#C9A86C] uppercase tracking-wider mb-1">
+              Seu Nome Completo *
+            </label>
+            <input
+              type="text"
+              required
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              placeholder="Ex: Ana Maria Souza"
+              className="w-full px-4 py-2.5 rounded-xl border border-[#C9A86C]/30 focus:border-[#C9A86C] focus:ring-1 focus:ring-[#C9A86C] text-sm text-white outline-none bg-[#0F0C0A]"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-[#C9A86C] uppercase tracking-wider mb-1">
+              Telefone / WhatsApp *
+            </label>
+            <input
+              type="tel"
+              required
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              placeholder="(11) 99999-9999"
+              className="w-full px-4 py-2.5 rounded-xl border border-[#C9A86C]/30 focus:border-[#C9A86C] focus:ring-1 focus:ring-[#C9A86C] text-sm text-white outline-none bg-[#0F0C0A]"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-[#C9A86C] uppercase tracking-wider mb-1">
+                Tratamento
+              </label>
+              <select
+                value={formData.treatment}
+                onChange={(e) => setFormData({ ...formData, treatment: e.target.value })}
+                className="w-full px-3 py-2.5 rounded-xl border border-[#C9A86C]/30 focus:border-[#C9A86C] focus:ring-1 focus:ring-[#C9A86C] text-sm text-white outline-none bg-[#0F0C0A]"
+              >
+                <option value="Avaliação Geral">Avaliação Inicial Geral</option>
+                {TREATMENTS.map((t) => (
+                  <option key={t.id} value={t.title}>
+                    {t.title}
+                  </option>
+                ))}
+              </select>
             </div>
 
-            <div className="space-y-1">
-              <h3 className="text-2xl font-serif font-bold text-white">
-                Solicitação Confirmada!
-              </h3>
-              <p className="text-xs sm:text-sm text-zinc-300">
-                Entraremos em contato no WhatsApp <strong>{formData.phone}</strong> para finalizar os detalhes.
-              </p>
-            </div>
-
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <button
-                type="button"
-                onClick={handleSendToWhatsApp}
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-full text-xs uppercase tracking-wider font-bold bg-[#25D366] hover:bg-[#20ba59] text-black shadow-lg cursor-pointer"
+            <div>
+              <label className="block text-xs font-bold text-[#C9A86C] uppercase tracking-wider mb-1">
+                Profissional
+              </label>
+              <select
+                value={formData.specialist}
+                onChange={(e) => setFormData({ ...formData, specialist: e.target.value })}
+                className="w-full px-3 py-2.5 rounded-xl border border-[#C9A86C]/30 focus:border-[#C9A86C] focus:ring-1 focus:ring-[#C9A86C] text-sm text-white outline-none bg-[#0F0C0A]"
               >
-                <MessageSquare className="w-4 h-4 fill-black" />
-                <span>Confirmar no WhatsApp</span>
-              </button>
-              <button
-                type="button"
-                onClick={onClose}
-                className="w-full sm:w-auto px-5 py-3 rounded-full text-xs text-zinc-400 hover:text-white bg-zinc-800"
-              >
-                Concluir
-              </button>
+                <option value="Dr. Carlos Eduardo (Implantes / Endodontia)">Dr. Carlos Eduardo (Implantes / Endodontia)</option>
+                <option value="Dra. Camila Dias Moreschi (Endodontia)">Dra. Camila Dias Moreschi (Endodontia)</option>
+                <option value="Dra. Bruna Andrade Santos (Clareamento)">Dra. Bruna Andrade Santos (Clareamento)</option>
+                <option value="Dra. Letícia Romano Zoccolo (Clínica Geral)">Dra. Letícia Romano Zoccolo (Clínica Geral)</option>
+                <option value="Dra. Andréa Cristina Lopes (Ortopedia / Ortodontia)">Dra. Andréa Cristina Lopes (Ortopedia / Ortodontia)</option>
+              </select>
             </div>
           </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="pr-8">
-              <span className="text-[11px] font-bold text-[#D4AF37] uppercase tracking-wider block mb-1">
-                Atendimento com hora marcada
-              </span>
-              <h3 className="text-2xl font-serif font-bold text-white">
-                Agende sua Avaliação
-              </h3>
-              <p className="text-xs text-zinc-400 mt-1">
-                Av. Caminho do Mar, 2030 (Próx. Sabesp e Bem Barato) – Rudge Ramos, SBC.
-              </p>
-            </div>
 
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1">
-                Nome Completo *
+              <label className="block text-xs font-bold text-[#C9A86C] uppercase tracking-wider mb-1">
+                Data Preferida
               </label>
               <input
-                type="text"
-                required
-                placeholder="Seu nome"
-                value={formData.fullName}
-                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#1A1A1A] border border-zinc-700 focus:border-[#D4AF37] text-white text-sm outline-none"
+                type="date"
+                value={formData.date}
+                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                className="w-full px-4 py-2.5 rounded-xl border border-[#C9A86C]/30 focus:border-[#C9A86C] focus:ring-1 focus:ring-[#C9A86C] text-sm text-white outline-none bg-[#0F0C0A]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1">
-                WhatsApp ou Telefone *
+              <label className="block text-xs font-bold text-[#C9A86C] uppercase tracking-wider mb-1">
+                Período
               </label>
-              <input
-                type="tel"
-                required
-                placeholder="(11) 99999-9999"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#1A1A1A] border border-zinc-700 focus:border-[#D4AF37] text-white text-sm outline-none"
-              />
+              <select
+                value={formData.time}
+                onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                className="w-full px-3 py-2.5 rounded-xl border border-[#C9A86C]/30 focus:border-[#C9A86C] focus:ring-1 focus:ring-[#C9A86C] text-sm text-white outline-none bg-[#0F0C0A]"
+              >
+                <option value="Manhã (09h - 12h)">Manhã (09h - 12h)</option>
+                <option value="Tarde (13h - 17h)">Tarde (13h - 17h)</option>
+                <option value="Noite (17h - 22h)">Noite (17h - 22h)</option>
+              </select>
             </div>
+          </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1">
-                  Tratamento *
-                </label>
-                <select
-                  value={formData.treatment}
-                  onChange={(e) => setFormData({ ...formData, treatment: e.target.value })}
-                  className="w-full px-3 py-2.5 rounded-xl bg-[#1A1A1A] border border-zinc-700 focus:border-[#D4AF37] text-white text-xs outline-none"
-                >
-                  {TREATMENTS.map((t) => (
-                    <option key={t.id} value={t.title}>
-                      {t.title}
-                    </option>
-                  ))}
-                  <option value="Avaliação Geral">Avaliação Geral</option>
-                </select>
+          <div>
+            <label className="block text-xs font-bold text-[#C9A86C] uppercase tracking-wider mb-1">
+              Observações (Opcional)
+            </label>
+            <textarea
+              rows={2}
+              value={formData.notes}
+              onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+              placeholder="Ex: Gostaria de confirmar horário ou tirar dúvida..."
+              className="w-full px-4 py-2 rounded-xl border border-[#C9A86C]/30 focus:border-[#C9A86C] focus:ring-1 focus:ring-[#C9A86C] text-sm text-white outline-none bg-[#0F0C0A]"
+            ></textarea>
+          </div>
+
+          {/* Highlights checklist */}
+          <div className="p-3.5 rounded-xl bg-[#0F0C0A] border border-[#C9A86C]/30 text-xs text-[#D4C9B8] space-y-1.5">
+            <div className="flex items-center space-x-2 font-medium text-white">
+              <Shield className="w-4 h-4 text-[#C9A86C]" />
+              <span>Protocolo Seguro Pró Dentes:</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 pl-6">
+              <div className="flex items-center space-x-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#C9A86C]" />
+                <span>Pressão e glicemia checadas</span>
               </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1">
-                  Especialista (Opcional)
-                </label>
-                <select
-                  value={formData.specialist}
-                  onChange={(e) => setFormData({ ...formData, specialist: e.target.value })}
-                  className="w-full px-3 py-2.5 rounded-xl bg-[#1A1A1A] border border-zinc-700 focus:border-[#D4AF37] text-white text-xs outline-none"
-                >
-                  <option value="">Qualquer especialista</option>
-                  {SPECIALISTS.map((s) => (
-                    <option key={s.id} value={s.name}>
-                      {s.name}
-                    </option>
-                  ))}
-                </select>
+              <div className="flex items-center space-x-1.5">
+                <HeartHandshake className="w-3.5 h-3.5 text-[#C9A86C]" />
+                <span>Atendimento sem pressa</span>
               </div>
             </div>
+          </div>
 
-            <div>
-              <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1">
-                Melhor Período
-              </label>
-              <div className="grid grid-cols-3 gap-2">
-                {[
-                  { id: 'manha', label: 'Manhã' },
-                  { id: 'tarde', label: 'Tarde' },
-                  { id: 'noite', label: 'Final do Dia' },
-                ].map((period) => (
-                  <button
-                    key={period.id}
-                    type="button"
-                    onClick={() =>
-                      setFormData({
-                        ...formData,
-                        preferredPeriod: period.id as BookingFormData['preferredPeriod'],
-                      })
-                    }
-                    className={`py-2 text-center rounded-lg text-xs font-medium border cursor-pointer ${
-                      formData.preferredPeriod === period.id
-                        ? 'bg-[#5C0A1F] border-[#D4AF37] text-amber-200'
-                        : 'bg-[#1A1A1A] border-zinc-700 text-zinc-400'
-                    }`}
-                  >
-                    {period.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1">
-                Mensagem ou Observação
-              </label>
-              <textarea
-                rows={2}
-                placeholder="Preferência de data ou motivo da consulta..."
-                value={formData.notes}
-                onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                className="w-full px-3 py-2 rounded-xl bg-[#1A1A1A] border border-zinc-700 focus:border-[#D4AF37] text-white text-xs outline-none"
-              ></textarea>
-            </div>
-
+          <div className="pt-2 flex items-center justify-end space-x-3">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-5 py-2.5 rounded-full text-xs font-semibold text-[#D4C9B8] hover:text-white bg-[#0F0C0A] hover:bg-[#0F0C0A]/80 transition-colors cursor-pointer border border-[#C9A86C]/30"
+            >
+              Cancelar
+            </button>
             <button
               type="submit"
-              disabled={loading}
-              className="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest bg-gradient-to-r from-[#D4AF37] to-[#B8860B] hover:from-[#5C0A1F] hover:to-[#8B0000] text-black hover:text-white border border-[#D4AF37] shadow-lg transition-all cursor-pointer"
+              className="px-6 py-2.5 rounded-full btn-gold-primary text-xs uppercase tracking-wider font-bold flex items-center space-x-2 shadow-md cursor-pointer"
             >
-              {loading ? 'Processando...' : 'Confirmar Solicitação'}
+              <Send className="w-4 h-4 text-[#C9A86C]" />
+              <span>Enviar via WhatsApp</span>
             </button>
-          </form>
-        )}
+          </div>
+        </form>
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
 import { TreatmentsSection } from './components/TreatmentsSection';
 import { SpecialistsSection } from './components/SpecialistsSection';
-import { SmartGallery } from './components/SmartGallery';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { BookingSection } from './components/BookingSection';
 import { ContactSection } from './components/ContactSection';
@@ -36,7 +35,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0D0D0D] text-[#F8F1E9] flex flex-col selection:bg-[#C9A227] selection:text-[#0D0D0D]">
+    <div className="min-h-screen bg-[#0F0C0A] text-[#F5F0EB] flex flex-col selection:bg-[#C9A86C]/30 selection:text-white">
       {/* Sticky Header with Centered Logo */}
       <Header onOpenBooking={handleOpenGeneralBooking} />
 
@@ -57,9 +56,6 @@ export default function App() {
         <SpecialistsSection
           onSelectSpecialistForBooking={handleSelectSpecialistForBooking}
         />
-
-        {/* Galeria Inteligente do Consultório */}
-        <SmartGallery onOpenBooking={handleOpenGeneralBooking} />
 
         {/* Depoimentos de Pacientes */}
         <TestimonialsSection />
